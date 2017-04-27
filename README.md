@@ -11,7 +11,8 @@ compile 'com.hengda.zwf:HdQrcode:0.0.1'
 ![](http://oksdjdocc.bkt.clouddn.com/17-4-27/21584263-file_1493291552849_1da8.png)
 
 ## 四、使用
-#### 启动二维码扫描界面
+#### 启动二维码扫描
+
 ```
             ScanConfig scanConfig = new ScanBuilder()
                     .setTitle(R.string.title_scan)
@@ -20,7 +21,23 @@ compile 'com.hengda.zwf:HdQrcode:0.0.1'
             ScannerActivity.gotoActivity(MainActivity.this, scanConfig);
 ```
 
+#### UI上可配置元素
+
+```
+    private int title;//标题
+    private int scanTip;//扫描提示
+    private int toolbarColor;//toolbar颜色
+    private int laserColor;//扫描线颜色
+    private int mediaResId;//扫描成功声音
+    private int frameMarginTop;//扫描框上边距
+    private int frameSizeWidth;//扫描框宽度
+    private int frameSizeHeight;//扫描框高度
+    private int frameCornerLength;//角上短线长度
+    private int laserLineHeight;//扫描线高度
+```
+
 #### 扫描成功
+
 ```
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

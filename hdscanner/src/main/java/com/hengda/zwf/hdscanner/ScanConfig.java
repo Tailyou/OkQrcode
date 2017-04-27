@@ -11,16 +11,16 @@ import android.os.Parcelable;
  */
 public class ScanConfig implements Parcelable {
 
-    private int title;
-    private int scanTip;
-    private int toolbarColor;
-    private int laserColor;
-    private int mediaResId;
-    private int frameMarginTop;
-    private int frameSizeWidth;
-    private int frameSizeHeight;
-    private int frameCornerLength;
-    private int laserLineHeight;
+    private int title;//标题
+    private int scanTip;//扫描提示
+    private int toolbarColor;//toolbar颜色
+    private int laserColor;//扫描线颜色
+    private int mediaResId;//扫描成功声音
+    private int frameMarginTop;//扫描框上边距
+    private int frameSizeWidth;//扫描框宽度
+    private int frameSizeHeight;//扫描框高度
+    private int frameCornerLength;//角上短线长度
+    private int laserLineHeight;//扫描线高度
 
     public int getTitle() {
         return title;
