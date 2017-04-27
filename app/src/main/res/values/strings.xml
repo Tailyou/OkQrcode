@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HdQrcode</string>
+    <string name="title_scan">二维码导览</string>
+    <string name="qrcode_scan_tip">将二维码放入框内，即可自动扫描</string>
+</resources>
