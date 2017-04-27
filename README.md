@@ -36,5 +36,5 @@ compile 'com.hengda.zwf:HdQrcode:0.0.1'
     }
 ```
 
-此处以BuilderDialog自定义布局为例，简单介绍说使用，具体用法参见demo。
+详细用法参见demo，项目地址：https://git.oschina.net/tailyou/HD_Frame_QrcodeScan
 
