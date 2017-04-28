@@ -50,15 +50,9 @@ public class ScannerActivity extends AppCompatActivity implements OnScannerCompl
         tvTitle = (TextView) findViewById(R.id.tvTitle);
 
         ScanConfig scanConfig = getIntent().getParcelableExtra(SCAN_CONFIG);
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
         tvTitle.setText(scanConfig.getTitle());
-        StatusBarUtil.setColorNoTranslucent(ScannerActivity.this, scanConfig.getToolbarColor());
         toolbar.setBackgroundColor(scanConfig.getToolbarColor());
+        StatusBarUtil.setColorNoTranslucent(ScannerActivity.this, scanConfig.getToolbarColor());
         scannerView.setLaserFrameBoundColor(scanConfig.getLaserColor());
         scannerView.setLaserColor(scanConfig.getLaserColor());
         scannerView.setMediaResId(scanConfig.getMediaResId());
@@ -68,6 +62,12 @@ public class ScannerActivity extends AppCompatActivity implements OnScannerCompl
         scannerView.setLaserLineHeight(scanConfig.getLaserLineHeight());
         scannerView.setDrawText(getString(scanConfig.getScanTip()), 16, Color.WHITE, true, 28);
         scannerView.setOnScannerCompletionListener(this);
+        ivBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     @Override
