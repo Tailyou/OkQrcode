@@ -28,7 +28,7 @@ import com.mylhyl.zxing.scanner.common.Intents;
  * @author 祝文飞（Tailyou）
  * @time 2017/4/27 17:22
  */
-public class ScannerActivity extends AppCompatActivity implements OnScannerCompletionListener {
+public class ScanActivity extends AppCompatActivity implements OnScannerCompletionListener {
 
     RelativeLayout toolbar;
     TextView tvTitle;
@@ -36,13 +36,13 @@ public class ScannerActivity extends AppCompatActivity implements OnScannerCompl
     ScannerView scannerView;
     public static final int REQUEST_CODE_SCANNER = 188;
     public static final String SCAN_CONFIG = "SCAN_CONFIG";
-    public static final String TAG = ScannerActivity.class.getSimpleName();
+    public static final String TAG = ScanActivity.class.getSimpleName();
     private Result mLastResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scanner);
+        setContentView(R.layout.activity_scan);
 
         ivBack = (ImageView) findViewById(R.id.ivBack);
         scannerView = (ScannerView) findViewById(R.id.scanner_view);
@@ -52,7 +52,7 @@ public class ScannerActivity extends AppCompatActivity implements OnScannerCompl
         ScanConfig scanConfig = getIntent().getParcelableExtra(SCAN_CONFIG);
         tvTitle.setText(scanConfig.getTitle());
         toolbar.setBackgroundColor(scanConfig.getToolbarColor());
-        StatusBarUtil.setColorNoTranslucent(ScannerActivity.this, scanConfig.getToolbarColor());
+        StatusBarUtil.setColorNoTranslucent(ScanActivity.this, scanConfig.getToolbarColor());
         scannerView.setLaserFrameBoundColor(scanConfig.getLaserColor());
         scannerView.setLaserColor(scanConfig.getLaserColor());
         scannerView.setMediaResId(scanConfig.getMediaResId());

@@ -8,7 +8,7 @@ import android.graphics.Color;
  * @author 祝文飞（Tailyou）
  * @time 2017/4/27 18:21
  */
-public class ScanBuilder {
+public class ConfigBuilder {
 
     private int title;
     private int scanTip;
@@ -21,52 +21,52 @@ public class ScanBuilder {
     private int frameCornerLength = 24;
     private int laserLineHeight = 2;
 
-    public ScanBuilder setToolbarColor(int toolbarColor) {
+    public ConfigBuilder setToolbarColor(int toolbarColor) {
         this.toolbarColor = toolbarColor;
         return this;
     }
 
-    public ScanBuilder setLaserColor(int laserColor) {
+    public ConfigBuilder setLaserColor(int laserColor) {
         this.laserColor = laserColor;
         return this;
     }
 
-    public ScanBuilder setMediaResId(int mediaResId) {
+    public ConfigBuilder setMediaResId(int mediaResId) {
         this.mediaResId = mediaResId;
         return this;
     }
 
-    public ScanBuilder setFrameMarginTop(int frameMarginTop) {
+    public ConfigBuilder setFrameMarginTop(int frameMarginTop) {
         this.frameMarginTop = frameMarginTop;
         return this;
     }
 
-    public ScanBuilder setFrameSizeWidth(int frameSizeWidth) {
+    public ConfigBuilder setFrameSizeWidth(int frameSizeWidth) {
         this.frameSizeWidth = frameSizeWidth;
         return this;
     }
 
-    public ScanBuilder setFrameSizeHeight(int frameSizeHeight) {
+    public ConfigBuilder setFrameSizeHeight(int frameSizeHeight) {
         this.frameSizeHeight = frameSizeHeight;
         return this;
     }
 
-    public ScanBuilder setFrameCornerLenght(int frameCornerLength) {
+    public ConfigBuilder setFrameCornerLenght(int frameCornerLength) {
         this.frameCornerLength = frameCornerLength;
         return this;
     }
 
-    public ScanBuilder setLaserLineHeight(int frameCornerLength) {
+    public ConfigBuilder setLaserLineHeight(int frameCornerLength) {
         this.frameCornerLength = frameCornerLength;
         return this;
     }
 
-    public ScanBuilder setTitle(int title) {
+    public ConfigBuilder setTitle(int title) {
         this.title = title;
         return this;
     }
 
-    public ScanBuilder setScanTip(int scanTip) {
+    public ConfigBuilder setScanTip(int scanTip) {
         this.scanTip = scanTip;
         return this;
     }

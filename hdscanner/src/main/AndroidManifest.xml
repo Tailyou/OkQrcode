@@ -9,7 +9,7 @@
         android:supportsRtl="true">
 
         <activity
-            android:name="com.hengda.zwf.hdscanner.ScannerActivity"
+            android:name="com.hengda.zwf.hdscanner.ScanActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Scanner">
             <intent-filter>
