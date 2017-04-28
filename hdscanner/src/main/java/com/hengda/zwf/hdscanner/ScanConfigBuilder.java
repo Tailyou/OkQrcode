@@ -8,7 +8,7 @@ import android.graphics.Color;
  * @author 祝文飞（Tailyou）
  * @time 2017/4/27 18:21
  */
-public class ConfigBuilder {
+public class ScanConfigBuilder {
 
     private int title;
     private int scanTip;
@@ -21,52 +21,52 @@ public class ConfigBuilder {
     private int frameCornerLength = 24;
     private int laserLineHeight = 2;
 
-    public ConfigBuilder setToolbarColor(int toolbarColor) {
+    public ScanConfigBuilder setToolbarColor(int toolbarColor) {
         this.toolbarColor = toolbarColor;
         return this;
     }
 
-    public ConfigBuilder setLaserColor(int laserColor) {
+    public ScanConfigBuilder setLaserColor(int laserColor) {
         this.laserColor = laserColor;
         return this;
     }
 
-    public ConfigBuilder setMediaResId(int mediaResId) {
+    public ScanConfigBuilder setMediaResId(int mediaResId) {
         this.mediaResId = mediaResId;
         return this;
     }
 
-    public ConfigBuilder setFrameMarginTop(int frameMarginTop) {
+    public ScanConfigBuilder setFrameMarginTop(int frameMarginTop) {
         this.frameMarginTop = frameMarginTop;
         return this;
     }
 
-    public ConfigBuilder setFrameSizeWidth(int frameSizeWidth) {
+    public ScanConfigBuilder setFrameSizeWidth(int frameSizeWidth) {
         this.frameSizeWidth = frameSizeWidth;
         return this;
     }
 
-    public ConfigBuilder setFrameSizeHeight(int frameSizeHeight) {
+    public ScanConfigBuilder setFrameSizeHeight(int frameSizeHeight) {
         this.frameSizeHeight = frameSizeHeight;
         return this;
     }
 
-    public ConfigBuilder setFrameCornerLenght(int frameCornerLength) {
+    public ScanConfigBuilder setFrameCornerLenght(int frameCornerLength) {
         this.frameCornerLength = frameCornerLength;
         return this;
     }
 
-    public ConfigBuilder setLaserLineHeight(int frameCornerLength) {
+    public ScanConfigBuilder setLaserLineHeight(int frameCornerLength) {
         this.frameCornerLength = frameCornerLength;
         return this;
     }
 
-    public ConfigBuilder setTitle(int title) {
+    public ScanConfigBuilder setTitle(int title) {
         this.title = title;
         return this;
     }
 
-    public ConfigBuilder setScanTip(int scanTip) {
+    public ScanConfigBuilder setScanTip(int scanTip) {
         this.scanTip = scanTip;
         return this;
     }

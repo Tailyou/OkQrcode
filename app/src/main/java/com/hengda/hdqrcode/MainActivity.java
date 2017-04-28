@@ -11,7 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hengda.zwf.hdscanner.ConfigBuilder;
+import com.hengda.zwf.hdscanner.ScanConfigBuilder;
 import com.hengda.zwf.hdscanner.ScanConfig;
 import com.hengda.zwf.hdscanner.ScanActivity;
 import com.mylhyl.zxing.scanner.common.Intents;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, 60);
         } else {
             //权限已经被授予，在这里直接写要执行的相应方法即可
-            ScanConfig scanConfig = new ConfigBuilder()
+            ScanConfig scanConfig = new ScanConfigBuilder()
                     .setTitle(R.string.title_scan)
                     .setScanTip(R.string.qrcode_scan_tip)
                     .create();
