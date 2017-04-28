@@ -5,7 +5,7 @@ publish {
     userOrg = 'hdandroidteam'
     groupId = 'com.hengda.zwf'
     artifactId = 'HdQrcode'
-    publishVersion = '0.0.1'
+    publishVersion = '0.0.2'
     desc = 'HdQrcode'
     website = 'https://github.com/Tailyou/'
 
