@@ -3,19 +3,21 @@ package com.hengda.hdqrcode;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hengda.zwf.hdscanner.ScanConfigBuilder;
-import com.hengda.zwf.hdscanner.ScanConfig;
 import com.hengda.zwf.hdscanner.ScanActivity;
+import com.hengda.zwf.hdscanner.ScanConfig;
+import com.hengda.zwf.hdscanner.ScanConfigBuilder;
 import com.mylhyl.zxing.scanner.common.Intents;
 
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.RuntimePermissions;
+
+@RuntimePermissions
 public class MainActivity extends AppCompatActivity {
 
     private android.widget.TextView tvHello;
@@ -28,24 +30,18 @@ public class MainActivity extends AppCompatActivity {
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openQrcodeScanner();
+                MainActivityPermissionsDispatcher.startScannerWithCheck(MainActivity.this);
             }
         });
     }
 
-    private void openQrcodeScanner() {
-        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            //权限还没有授予，需要在这里写申请权限的代码
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.CAMERA}, 60);
-        } else {
-            //权限已经被授予，在这里直接写要执行的相应方法即可
-            ScanConfig scanConfig = new ScanConfigBuilder()
-                    .setTitle(R.string.title_scan)
-                    .setScanTip(R.string.qrcode_scan_tip)
-                    .create();
-            ScanActivity.gotoActivity(MainActivity.this, scanConfig);
-        }
+    @NeedsPermission(Manifest.permission.CAMERA)
+    void startScanner() {
+        ScanConfig scanConfig = new ScanConfigBuilder()
+                .setTitle(R.string.title_scan)
+                .setScanTip(R.string.qrcode_scan_tip)
+                .create();
+        ScanActivity.gotoActivity(MainActivity.this, scanConfig);
     }
 
     @Override
@@ -59,6 +55,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        MainActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults);
     }
 
 }
