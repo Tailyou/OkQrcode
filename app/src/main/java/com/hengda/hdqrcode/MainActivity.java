@@ -12,7 +12,6 @@ import com.google.zxing.Result;
 import com.google.zxing.client.result.ParsedResult;
 import com.google.zxing.client.result.ParsedResultType;
 import com.google.zxing.client.result.TextParsedResult;
-import com.google.zxing.client.result.URIParsedResult;
 import com.hengda.zwf.hdscanner.ScanActivity;
 import com.hengda.zwf.hdscanner.ScanConfig;
 import com.hengda.zwf.hdscanner.ScanConfigBuilder;
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             public void OnScannerCompletion(Result rawResult, ParsedResult parsedResult, Bitmap barcode) {
                 ParsedResultType type = parsedResult.getType();
                 switch (type) {
-                    case ADDRESSBOOK:
+                    /*case ADDRESSBOOK:
                         break;
                     case PRODUCT:
                         break;
@@ -60,18 +59,18 @@ public class MainActivity extends AppCompatActivity {
                         ScanActivity.sInstance.finish();
                         URIParsedResult uri = (URIParsedResult) parsedResult;
                         tvHello.setText(uri.getURI());
-                        break;
+                        break;*/
                     case TEXT:
                         ScanActivity.sInstance.finish();
                         TextParsedResult textParsedResult = (TextParsedResult) parsedResult;
                         tvHello.setText(textParsedResult.getText());
                         break;
-                    case GEO:
+                    /*case GEO:
                         break;
                     case TEL:
                         break;
                     case SMS:
-                        break;
+                        break;*/
                 }
             }
         };
