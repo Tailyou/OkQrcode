@@ -26,15 +26,15 @@ public class ScanActivity extends AppCompatActivity {
     TextView tvTitle;
     ImageView ivBack;
     ScannerView scannerView;
-    public static final String SCAN_CONFIG = "SCAN_CONFIG";
-    public static ScanActivity sInstance;
+    private static final String SCAN_CONFIG = "SCAN_CONFIG";
     private static OnScannerCompletionListener scannerCompletionListener;
+    public static ScanActivity sInstance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
-        sInstance = this;
+        sInstance = ScanActivity.this;
         ScanConfig scanConfig = getIntent().getParcelableExtra(SCAN_CONFIG);
 
         ivBack = (ImageView) findViewById(R.id.ivBack);

@@ -24,13 +24,13 @@ import permissions.dispatcher.RuntimePermissions;
 @RuntimePermissions
 public class MainActivity extends AppCompatActivity {
 
-    private android.widget.TextView tvHello;
+    private TextView tvHello;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        this.tvHello = (TextView) findViewById(R.id.tvHello);
+        tvHello = (TextView) findViewById(R.id.tvHello);
         tvHello.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle(R.string.title_scan)
                 .setScanTip(R.string.qrcode_scan_tip)
                 .create();
-        OnScannerCompletionListener listener = new OnScannerCompletionListener() {
+        OnScannerCompletionListener scanListener = new OnScannerCompletionListener() {
             @Override
             public void OnScannerCompletion(Result rawResult, ParsedResult parsedResult, Bitmap barcode) {
                 ParsedResultType type = parsedResult.getType();
@@ -57,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
                     case ISBN:
                         break;
                     case URI:
+                        ScanActivity.sInstance.finish();
                         URIParsedResult uri = (URIParsedResult) parsedResult;
                         tvHello.setText(uri.getURI());
-                        ScanActivity.sInstance.finish();
                         break;
                     case TEXT:
+                        ScanActivity.sInstance.finish();
                         TextParsedResult textParsedResult = (TextParsedResult) parsedResult;
                         tvHello.setText(textParsedResult.getText());
-                        ScanActivity.sInstance.finish();
                         break;
                     case GEO:
                         break;
@@ -75,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        ScanActivity.gotoActivity(MainActivity.this, scanConfig, listener);
+        //启动扫描界面，传入UI配置和扫描结束回调
+        ScanActivity.gotoActivity(MainActivity.this, scanConfig, scanListener);
     }
 
     @Override
