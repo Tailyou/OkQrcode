@@ -37,8 +37,12 @@ public class ScanActivity extends AppCompatActivity {
         sInstance = ScanActivity.this;
         ScanConfig scanConfig = getIntent().getParcelableExtra(SCAN_CONFIG);
 
+        toolbar = (RelativeLayout) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(scanConfig.getToolbarColor());
+        StatusBarUtil.setColorNoTranslucent(ScanActivity.this, scanConfig.getToolbarColor());
+
         ivBack = (ImageView) findViewById(R.id.ivBack);
-        ivBack.setColorFilter(scanConfig.getLaserColor());
+        ivBack.setColorFilter(scanConfig.getTitleColor());
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,13 +50,9 @@ public class ScanActivity extends AppCompatActivity {
             }
         });
 
-        toolbar = (RelativeLayout) findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(scanConfig.getToolbarColor());
-        StatusBarUtil.setColorNoTranslucent(ScanActivity.this, scanConfig.getToolbarColor());
-
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvTitle.setText(scanConfig.getTitle());
-        tvTitle.setTextColor(scanConfig.getLaserColor());
+        tvTitle.setTextColor(scanConfig.getTitleColor());
 
         scannerView = (ScannerView) findViewById(R.id.scanner_view);
         scannerView.setLaserFrameBoundColor(scanConfig.getLaserColor());
