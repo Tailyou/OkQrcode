@@ -79,6 +79,17 @@ public class ScanActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (sInstance != null) {
+            sInstance = null;
+        }
+        if (scannerCompletionListener != null) {
+            scannerCompletionListener = null;
+        }
+    }
+
     public static void gotoActivity(Activity activity, ScanConfig scanConfig, OnScannerCompletionListener listener) {
         Intent intent = new Intent(Intents.Scan.ACTION).putExtra(SCAN_CONFIG, scanConfig);
         activity.startActivity(intent);
