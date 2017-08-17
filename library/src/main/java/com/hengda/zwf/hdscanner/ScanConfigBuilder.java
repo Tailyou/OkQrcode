@@ -28,7 +28,7 @@ public class ScanConfigBuilder {
     }
 
     public ScanConfigBuilder setTitleColor(int titleColor) {
-        this.titleColor = toolbarColor;
+        this.titleColor = titleColor;
         return this;
     }
 
