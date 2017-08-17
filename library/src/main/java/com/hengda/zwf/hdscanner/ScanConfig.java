@@ -14,6 +14,7 @@ public class ScanConfig implements Parcelable {
     private int title;//标题
     private int scanTip;//扫描提示
     private int toolbarColor;//toolbar颜色
+    private int titleColor;//文字，返回按钮颜色
     private int laserColor;//扫描线颜色
     private int mediaResId;//扫描成功声音
     private int frameMarginTop;//扫描框上边距
@@ -21,6 +22,32 @@ public class ScanConfig implements Parcelable {
     private int frameSizeHeight;//扫描框高度
     private int frameCornerLength;//角上短线长度
     private int laserLineHeight;//扫描线高度
+
+    protected ScanConfig(Parcel in) {
+        title = in.readInt();
+        scanTip = in.readInt();
+        toolbarColor = in.readInt();
+        titleColor = in.readInt();
+        laserColor = in.readInt();
+        mediaResId = in.readInt();
+        frameMarginTop = in.readInt();
+        frameSizeWidth = in.readInt();
+        frameSizeHeight = in.readInt();
+        frameCornerLength = in.readInt();
+        laserLineHeight = in.readInt();
+    }
+
+    public static final Creator<ScanConfig> CREATOR = new Creator<ScanConfig>() {
+        @Override
+        public ScanConfig createFromParcel(Parcel in) {
+            return new ScanConfig(in);
+        }
+
+        @Override
+        public ScanConfig[] newArray(int size) {
+            return new ScanConfig[size];
+        }
+    };
 
     public int getTitle() {
         return title;
@@ -44,6 +71,14 @@ public class ScanConfig implements Parcelable {
 
     public void setToolbarColor(int toolbarColor) {
         this.toolbarColor = toolbarColor;
+    }
+
+    public int getTitleColor() {
+        return titleColor;
+    }
+
+    public void setTitleColor(int titleColor) {
+        this.titleColor = titleColor;
     }
 
     public int getLaserColor() {
@@ -103,12 +138,13 @@ public class ScanConfig implements Parcelable {
     }
 
     public ScanConfig(int title, int scanTip, int toolbarColor,
-                      int laserColor, int mediaResId, int frameMarginTop,
-                      int frameSizeWidth, int frameSizeHeight,
+                      int laserColor, int titleColor, int mediaResId,
+                      int frameMarginTop, int frameSizeWidth, int frameSizeHeight,
                       int frameCornerLength, int laserLineHeight) {
         this.title = title;
         this.scanTip = scanTip;
         this.toolbarColor = toolbarColor;
+        this.titleColor = titleColor;
         this.laserColor = laserColor;
         this.mediaResId = mediaResId;
         this.frameMarginTop = frameMarginTop;
@@ -118,9 +154,6 @@ public class ScanConfig implements Parcelable {
         this.laserLineHeight = laserLineHeight;
     }
 
-    public ScanConfig() {
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -128,40 +161,16 @@ public class ScanConfig implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.title);
-        dest.writeInt(this.scanTip);
-        dest.writeInt(this.toolbarColor);
-        dest.writeInt(this.laserColor);
-        dest.writeInt(this.mediaResId);
-        dest.writeInt(this.frameMarginTop);
-        dest.writeInt(this.frameSizeWidth);
-        dest.writeInt(this.frameSizeHeight);
-        dest.writeInt(this.frameCornerLength);
-        dest.writeInt(this.laserLineHeight);
+        dest.writeInt(title);
+        dest.writeInt(scanTip);
+        dest.writeInt(toolbarColor);
+        dest.writeInt(titleColor);
+        dest.writeInt(laserColor);
+        dest.writeInt(mediaResId);
+        dest.writeInt(frameMarginTop);
+        dest.writeInt(frameSizeWidth);
+        dest.writeInt(frameSizeHeight);
+        dest.writeInt(frameCornerLength);
+        dest.writeInt(laserLineHeight);
     }
-
-    protected ScanConfig(Parcel in) {
-        this.title = in.readInt();
-        this.scanTip = in.readInt();
-        this.toolbarColor = in.readInt();
-        this.laserColor = in.readInt();
-        this.mediaResId = in.readInt();
-        this.frameMarginTop = in.readInt();
-        this.frameSizeWidth = in.readInt();
-        this.frameSizeHeight = in.readInt();
-        this.frameCornerLength = in.readInt();
-        this.laserLineHeight = in.readInt();
-    }
-
-    public static final Creator<ScanConfig> CREATOR = new Creator<ScanConfig>() {
-        @Override
-        public ScanConfig createFromParcel(Parcel source) {
-            return new ScanConfig(source);
-        }
-
-        @Override
-        public ScanConfig[] newArray(int size) {
-            return new ScanConfig[size];
-        }
-    };
 }

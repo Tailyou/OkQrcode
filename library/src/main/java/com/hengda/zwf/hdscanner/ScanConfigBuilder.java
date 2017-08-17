@@ -13,6 +13,7 @@ public class ScanConfigBuilder {
     private int title;
     private int scanTip;
     private int toolbarColor = Color.GRAY;
+    private int titleColor = Color.WHITE;
     private int laserColor = Color.YELLOW;
     private int mediaResId = R.raw.beep;
     private int frameMarginTop = 128;
@@ -23,6 +24,11 @@ public class ScanConfigBuilder {
 
     public ScanConfigBuilder setToolbarColor(int toolbarColor) {
         this.toolbarColor = toolbarColor;
+        return this;
+    }
+
+    public ScanConfigBuilder setTitleColor(int titleColor) {
+        this.titleColor = toolbarColor;
         return this;
     }
 
@@ -72,7 +78,7 @@ public class ScanConfigBuilder {
     }
 
     public ScanConfig create() {
-        return new ScanConfig(title, scanTip, toolbarColor, laserColor, mediaResId,
+        return new ScanConfig(title, scanTip, toolbarColor, titleColor, laserColor, mediaResId,
                 frameMarginTop, frameSizeWidth, frameSizeHeight, frameCornerLength, laserLineHeight);
     }
 
