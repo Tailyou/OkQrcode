@@ -64,7 +64,6 @@ public class ScanActivity extends AppCompatActivity {
         scannerView.setLaserLineHeight(scanConfig.getLaserLineHeight());
         scannerView.setDrawText(getString(scanConfig.getScanTip()), 16, Color.WHITE, true, 28);
         scannerView.setOnScannerCompletionListener(scannerCompletionListener);
-
     }
 
     @Override
