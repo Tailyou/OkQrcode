@@ -90,7 +90,7 @@ public class ScanActivity extends AppCompatActivity {
     }
 
     public static void gotoActivity(Activity activity, ScanConfig scanConfig, OnScannerCompletionListener listener) {
-        Intent intent = new Intent(Intents.Scan.ACTION).putExtra(SCAN_CONFIG, scanConfig);
+        Intent intent = new Intent(activity, ScanActivity.class).putExtra(SCAN_CONFIG, scanConfig);
         activity.startActivity(intent);
         scannerCompletionListener = listener;
     }
