@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.mylhyl.zxing.scanner.OnScannerCompletionListener;
 import com.mylhyl.zxing.scanner.ScannerView;
-import com.mylhyl.zxing.scanner.common.Intents;
 
 /**
  * 扫描界面
