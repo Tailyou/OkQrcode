@@ -24,10 +24,10 @@ public class ScanActivity extends AppCompatActivity {
     RelativeLayout toolbar;
     TextView tvTitle;
     ImageView ivBack;
-    ScannerView scannerView;
     private static final String SCAN_CONFIG = "SCAN_CONFIG";
     private static OnScannerCompletionListener scannerCompletionListener;
     public static ScanActivity sInstance;
+    public static ScannerView scannerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,7 @@ public class ScanActivity extends AppCompatActivity {
 
         toolbar = (RelativeLayout) findViewById(R.id.toolbar);
         toolbar.setBackgroundColor(scanConfig.getToolbarColor());
-        StatusBarUtil.setColorNoTranslucent(ScanActivity.this, scanConfig.getToolbarColor());
+        StatusBarUtil.setColorNoTranslucent(sInstance, scanConfig.getToolbarColor());
 
         ivBack = (ImageView) findViewById(R.id.ivBack);
         ivBack.setColorFilter(scanConfig.getTitleColor());

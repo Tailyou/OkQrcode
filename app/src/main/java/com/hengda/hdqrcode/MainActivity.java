@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.zxing.Result;
 import com.google.zxing.client.result.ParsedResult;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         ScanConfig scanConfig = new ScanConfigBuilder()
                 .setTitle(R.string.title_scan)
                 .setScanTip(R.string.qrcode_scan_tip)
+                .setToolbarColor(android.R.color.transparent)
                 .create();
         OnScannerCompletionListener scanListener = new OnScannerCompletionListener() {
             @Override
@@ -66,9 +68,11 @@ public class MainActivity extends AppCompatActivity {
                         tvHello.setText(uri.getURI());
                         break;*/
                     case TEXT:
-                        ScanActivity.sInstance.finish();
+                        //ScanActivity.sInstance.finish();
                         TextParsedResult textParsedResult = (TextParsedResult) parsedResult;
                         tvHello.setText(textParsedResult.getText());
+                        Toast.makeText(MainActivity.this, textParsedResult.getText(), Toast.LENGTH_SHORT).show();
+                        ScanActivity.scannerView.onResume();
                         break;
                     /*case GEO:
                         break;
